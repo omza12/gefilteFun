@@ -1,0 +1,108 @@
+{
+    "questions": [
+        {
+            "id": 1,
+            "questionText": "מה פירוש המילה צ'ונט?",
+            "answers": [
+                {
+                    "id": 1,
+                    "answerText": "מאכל שקרוי גם חמין",
+                    "result": 0
+                },
+                {
+                    "id": 2,
+                    "answerText": "מברכים",
+                    "result": 0
+                },
+                {
+                    "id": 3,
+                    "answerText": "מרכלים",
+                    "result": 1
+                },
+                {
+                    "id": 4,
+                    "answerText": "הכשר למסעדות בחו\"ל",
+                    "result": 0
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "questionText": "מה פירוש הקיצור אנ\"ש?",
+            "answers": [
+                {
+                    "id": 1,
+                    "answerText": "אנשי שלום",
+                    "result": 1
+                },
+                {
+                    "id": 2,
+                    "answerText": "אנשים משלנו",
+                    "result": 0
+                },
+                {
+                    "id": 3,
+                    "answerText": "ארון נישא לשם שבעה",
+                    "result": 0
+                },
+                {
+                    "id": 4,
+                    "answerText": "אחרונת נשים לשידוכין",
+                    "result": 0
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "questionText": "מה פירוש הקיצור זו\"צ?",
+            "answers": [
+                {
+                    "id": 1,
+                    "answerText": "זוג צעיר",
+                    "result": 1
+                },
+                {
+                    "id": 2,
+                    "answerText": "זמיר צנוע",
+                    "result": 0
+                },
+                {
+                    "id": 3,
+                    "answerText": "זכות לצניעות",
+                    "result": 0
+                },
+                {
+                    "id": 4,
+                    "answerText": "זיכרון וצניעות",
+                    "result": 0
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "questionText": "מה פירוש המילה שכוייח?",
+            "answers": [
+                {
+                    "id": 1,
+                    "answerText": "שכחתי להתפלל",
+                    "result": 0
+                },
+                {
+                    "id": 2,
+                    "answerText": "אדם שכחן",
+                    "result": 0
+                },
+                {
+                    "id": 3,
+                    "answerText": "ישר כחליל",
+                    "result": 0
+                },
+                {
+                    "id": 4,
+                    "answerText": "ישר כוח",
+                    "result": 1
+                }
+            ]
+        }
+    ]
+}
