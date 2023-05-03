@@ -44,7 +44,7 @@
         android:id="@+id/Login"
         android:layout_width="206dp"
         android:layout_height="41dp"
-        android:backgroundTint="#CACACA"
+        android:backgroundTint="@color/grey"
         android:text="אודות"
         android:textColor="@color/black"
         android:visibility="visible"
