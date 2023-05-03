@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Gefilte Fun!</string>
+    <string name="login">התחברות</string>
+    <string name="about_us">אודות</string>
+    <string name="choose">בחירה</string>
+    <string name="email">אימייל</string>
+    <string name="username">שם משתמש</string>
+    <string name="password">סיסמה</string>
+    <string name="register">הרשמה</string>
 </resources>
