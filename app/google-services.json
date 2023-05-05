@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1083615203393",
+    "project_id": "android-app-1d6d8",
+    "storage_bucket": "android-app-1d6d8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1083615203393:android:fb8ca832e467d2a654b6c0",
+        "android_client_info": {
+          "package_name": "com.gefilte.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1083615203393-ni4c4laju7j5ttprum6jppc5o94moej6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBtYVVMAFTehc-bv9lRL_36QsTbEmqaj-Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1083615203393-ni4c4laju7j5ttprum6jppc5o94moej6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
