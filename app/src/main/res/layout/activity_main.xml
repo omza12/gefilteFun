@@ -21,11 +21,11 @@
 
     <Button
         android:id="@+id/login"
-        android:backgroundTint="@color/grey"
         android:layout_width="205dp"
         android:layout_height="43dp"
         android:text="@string/login"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -50,6 +50,7 @@
         android:backgroundTint="@color/grey"
         android:text="@string/register"
         android:textColor="@color/black"
+        android:textStyle="bold"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -14,7 +15,7 @@ import android.widget.TextView;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class HomeScreen extends AppCompatActivity implements View.OnClickListener {
+public class Trivia extends AppCompatActivity implements View.OnClickListener {
 
     TextView questionTextView;
     Button ansA,ansB,ansC,ansD,submit;
@@ -27,7 +28,7 @@ public class HomeScreen extends AppCompatActivity implements View.OnClickListene
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home_screen);
+        setContentView(R.layout.activity_trivia);
 
         questionTextView = findViewById(R.id.question);
         ansA = findViewById(R.id.ans_a);
@@ -57,17 +58,21 @@ public class HomeScreen extends AppCompatActivity implements View.OnClickListene
             if (selectedAnswer.equals(Quiz.correctAnswers[currentQuestionIndex])){
                 score++;
                 mDialog.setContentView(R.layout.correctpopup);
-                mDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-                showDialog(mDialog);
             }
             else{
                 mDialog.setContentView(R.layout.wrongpopup);
-                mDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-                showDialog(mDialog);
 
             }
+            mDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+            showDialog(mDialog);
             currentQuestionIndex++;
-            loadNewQuestion();
+            if (currentQuestionIndex < totalQuestions){
+                loadNewQuestion();
+            }
+            else{
+                finishQuiz();
+                return;
+            }
         }
         else{
             selectedAnswer = clickedButton.getText().toString();
@@ -101,23 +106,28 @@ public class HomeScreen extends AppCompatActivity implements View.OnClickListene
     void finishQuiz(){
         String passStatus = "";
         if (score > totalQuestions*0.6){
-            passStatus = "Passed";
+            passStatus = "כל הכבוד!";
         }
         else {
-            passStatus = "Failed";
+            passStatus = "לא נורא...";
         }
 
         new AlertDialog.Builder(this)
                 .setTitle(passStatus)
-                .setMessage("Score is " + score + " out of " + totalQuestions)
-                .setPositiveButton("Restart",(dialogInterface, i) -> restartQuiz())
-                .setCancelable(true)
-                .show();
+                //.setMessage("Score is " + score + " out of " + totalQuestions)
+                .setMessage("צדקת ב - " + score + " מתוך " + totalQuestions + " שאלות")
+                .setPositiveButton("חזרה",(dialogInterface, i) -> restartQuiz())
+                .setCancelable(false)
+                .show()
+                .getWindow()
+                .getDecorView()
+                .setLayoutDirection(View.LAYOUT_DIRECTION_RTL);
     }
 
     void restartQuiz(){
         score = 0;
         currentQuestionIndex = 0;
-        loadNewQuestion();
+        Intent intent = new Intent(getApplicationContext(), UserScreen.class);
+        startActivity(intent);
     }
 }

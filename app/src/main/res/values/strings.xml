@@ -7,4 +7,8 @@
     <string name="username">שם משתמש</string>
     <string name="password">סיסמה</string>
     <string name="register">הרשמה</string>
+    <string name="welcome">שלום, </string>
+    <string name="choose_game">בחירת משחק</string>
+    <string name="trivia">טריוויה</string>
+    <string name="vocabulary">מאגר מילים</string>
 </resources>

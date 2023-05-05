@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
         login_btn = findViewById(R.id.login);
         register_btn = findViewById(R.id.register);
         login_btn.setOnClickListener(v -> {
-                Intent intent = new Intent(getApplicationContext(), login.class);
+                Intent intent = new Intent(getApplicationContext(), UserScreen.class);
                 startActivity(intent);
             }
         );
