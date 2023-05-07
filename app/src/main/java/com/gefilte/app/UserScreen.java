@@ -8,15 +8,20 @@ import android.widget.Button;
 
 public class UserScreen extends AppCompatActivity {
 
-    Button triviaBtn;
+    Button triviaBtn,vocabBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_screen);
 
         triviaBtn = findViewById(R.id.trivia_btn);
+        vocabBtn = findViewById(R.id.vocabulary);
         triviaBtn.setOnClickListener(v -> {
             Intent intent = new Intent(getApplicationContext(), Trivia.class);
+            startActivity(intent);
+        });
+        vocabBtn.setOnClickListener(v -> {
+            Intent intent = new Intent(getApplicationContext(), VocabularyMain.class);
             startActivity(intent);
         });
     }

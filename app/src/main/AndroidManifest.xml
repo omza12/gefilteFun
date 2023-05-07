@@ -11,9 +11,16 @@
         android:icon="@drawable/gefilte"
         android:label="@string/app_name"
         android:roundIcon="@drawable/gefilte"
+        android:screenOrientation="portrait"
         android:supportsRtl="true"
         android:theme="@style/Theme.Gefilte"
         tools:targetApi="31">
+        <activity
+            android:name=".WeddingWords"
+            android:exported="false" />
+        <activity
+            android:name=".VocabularyMain"
+            android:exported="false" />
         <activity
             android:name=".UserScreen"
             android:exported="false" />
@@ -38,8 +45,7 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:exported="true"
-            android:screenOrientation="portrait">
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
