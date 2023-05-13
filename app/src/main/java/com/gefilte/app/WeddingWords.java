@@ -5,22 +5,18 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Dialog;
-import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
-import android.view.WindowManager;
-
-import com.gefilte.app.R;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class WeddingWords extends AppCompatActivity {
+public class WeddingWords extends AppCompatActivity implements SelectListener{
 
     Dialog mDialog;
-
+    TextView title, details;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,13 +27,33 @@ public class WeddingWords extends AppCompatActivity {
         mDialog.show();
 
         RecyclerView recyclerView = findViewById(R.id.wedding_recycle_view);
-        List<WeddingItem> items = new ArrayList<WeddingItem>();
-        items.add(new WeddingItem("חתונה אחת"));
-        items.add(new WeddingItem("חתונה שתיים"));
-        items.add(new WeddingItem("חתונה שלוש"));
-        items.add(new WeddingItem("חתונה ארבע"));
+        List<WeddingItem> items = new ArrayList<>();
+        items.add(new WeddingItem("זו\"צ - זוג צעיר"));
+        items.add(new WeddingItem("פקק"));
+        items.add(new WeddingItem("שומע/ת"));
+        items.add(new WeddingItem("סידור מלא"));
+        items.add(new WeddingItem("ווארט"));
+        items.add(new WeddingItem("חתונה"));
+        items.add(new WeddingItem("ייחוד?"));
+        items.add(new WeddingItem("משמחים"));
+        items.add(new WeddingItem("ברוכה הכלה"));
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(new MyAdapter(getApplicationContext(), items));
+        recyclerView.setAdapter(new MyAdapter(getApplicationContext(), items,this));
+    }
+
+    @Override
+    public void onItemClicked(WeddingItem weddingItem) {
+        Dialog wordDialog = new Dialog(this);
+        String wordTitle = getString(R.string.young_couple_title);
+        String wordDetails = getString(R.string.young_couple_details);
+        if (weddingItem.getName()=="זו\"צ - זוג צעיר"){
+            title = findViewById(R.id.word_title);
+            details = findViewById(R.id.word_details);
+            title.setText(wordTitle);
+            wordDialog.setContentView(R.layout.word_info_popup);
+            wordDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+            wordDialog.show();
+        }
     }
 }

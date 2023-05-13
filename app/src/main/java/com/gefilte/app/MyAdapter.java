@@ -13,10 +13,12 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
 
     Context context;
     List<WeddingItem> items;
+    SelectListener listener;
 
-    public MyAdapter(Context context, List<WeddingItem> items) {
+    public MyAdapter(Context context, List<WeddingItem> items, SelectListener listener) {
         this.context = context;
         this.items = items;
+        this.listener = listener;
     }
 
     @NonNull
@@ -28,6 +30,9 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         holder.nameView.setText(items.get(position).getName());
+        holder.cardView.setOnClickListener(v->{
+            listener.onItemClicked(items.get(position));
+        });
     }
 
     @Override

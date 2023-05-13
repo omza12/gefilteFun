@@ -1,23 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/wedding_items"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="10dp"
-    android:layoutDirection="rtl">
+    android:layoutDirection="rtl"
+    app:cardCornerRadius="10dp"
+    app:cardBackgroundColor="@color/grey">
     <TextView
         android:id="@+id/wedding_word"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:textColor="@color/black"
         android:text="מילה ראשונה"
         android:textSize="30sp" />
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="#00BCD4"
-        android:layout_below="@id/wedding_word"
-        android:layout_marginTop="10dp">
-    </LinearLayout>
-</RelativeLayout>
+</androidx.cardview.widget.CardView>
