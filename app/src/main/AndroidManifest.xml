@@ -16,6 +16,10 @@
         android:theme="@style/Theme.Gefilte"
         tools:targetApi="31">
         <activity
+            android:name=".word_info"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.Light.Dialog.MinWidth"/>
+        <activity
             android:name=".WeddingWords"
             android:exported="false" />
         <activity
