@@ -1,9 +1,9 @@
 package com.gefilte.app;
 
-public class WeddingItem {
+public class WordItem {
     String name;
 
-    public WeddingItem(String name) {
+    public WordItem(String name) {
         this.name = name;
     }
 

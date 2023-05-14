@@ -23,10 +23,10 @@ public class MainActivity extends AppCompatActivity {
             }
         );
 
-        register_btn.setOnClickListener(v -> {
-            Intent intent = new Intent(getApplicationContext(), Register.class);
-            startActivity(intent);
-            }
-        );
+//        register_btn.setOnClickListener(v -> {
+//            Intent intent = new Intent(getApplicationContext(), Register.class);
+//            startActivity(intent);
+//            }
+//        );
     }
 }

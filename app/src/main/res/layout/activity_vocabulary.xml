@@ -55,7 +55,7 @@
                 android:text="צנזורה"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                android:id="@+id/censorship"
+                android:id="@+id/censorship_btn"
                 style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
                 tools:ignore="HardcodedText" />
 
@@ -76,7 +76,7 @@
                 android:text="תפילות"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                android:id="@+id/prairs"
+                android:id="@+id/prairs_btn"
                 style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
                 tools:ignore="HardcodedText" />
             <com.google.android.material.button.MaterialButton
@@ -86,10 +86,10 @@
                 android:backgroundTint="#673AB7"
                 android:textColor="@color/white"
                 android:layout_margin="12dp"
-                android:text="עשה ואל תעשה"
+                android:text="עבודה"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                android:id="@+id/dos_and_donts"
+                android:id="@+id/dos_and_donts_btn"
                 style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
                 tools:ignore="HardcodedText" />
 

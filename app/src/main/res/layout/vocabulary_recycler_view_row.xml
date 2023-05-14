@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/wedding_items"
+    android:id="@+id/recycler_items"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="10dp"
@@ -9,7 +9,7 @@
     app:cardCornerRadius="10dp"
     app:cardBackgroundColor="@color/grey">
     <TextView
-        android:id="@+id/wedding_word"
+        android:id="@+id/recycler_word"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"

@@ -12,10 +12,10 @@ import java.util.List;
 public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
 
     Context context;
-    List<WeddingItem> items;
+    List<WordItem> items;
     SelectListener listener;
 
-    public MyAdapter(Context context, List<WeddingItem> items, SelectListener listener) {
+    public MyAdapter(Context context, List<WordItem> items, SelectListener listener) {
         this.context = context;
         this.items = items;
         this.listener = listener;

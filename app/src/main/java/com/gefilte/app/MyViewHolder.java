@@ -13,7 +13,7 @@ public class MyViewHolder extends RecyclerView.ViewHolder {
     CardView cardView;
     public MyViewHolder(@NonNull View itemView) {
         super(itemView);
-        nameView = itemView.findViewById(R.id.wedding_word);
-        cardView = itemView.findViewById(R.id.wedding_items);
+        nameView = itemView.findViewById(R.id.recycler_word);
+        cardView = itemView.findViewById(R.id.recycler_items);
     }
 }

@@ -1,5 +1,5 @@
 package com.gefilte.app;
 
 public interface SelectListener {
-    void onItemClicked(WeddingItem weddingItem);
+    void onItemClicked(WordItem weddingItem);
 }
