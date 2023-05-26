@@ -23,6 +23,9 @@
     <string name="action_settings">Settings</string>
     <string name="analogies">קבוצות מילים</string>
     <string name="wedding_info">חתונה היא הכינוי של טקס הכניסה בברית הנישואים. טקס זה נערך בצורות שונות בתרבויות ובדתות שונות, וגם במסגרת תרבות מסוימת מתקיימות דרכים מגוונות לעריכתו. בני הזוג הנישאים, מכונים \"חתן\" ו\"כלה\", ובתום הטקס הם נקראים \"בעל\" ו\"אישה\", וקיימת ביניהם זיקה המעוגנת בחוק. יש מקומות בהם הטקס מתפצל לטקס רשמי (דתי או אזרחי) ולמסיבה וארוחה, ויש כאלה בהם חוגגים את שניהם ביחד. בדרך כלל החברה או המדינה מחייבת את קיומו של טקס מחייב על מנת לאפשר את שינוי המעמד האישי מרווקים לנשואים. בחברות שמרניות אסור לחיות חיי אישות ולהתגורר ביחד לפני טקס זה.\n\nיש המכנים את יום הנישואין ה-25 בשם \"חתונת הכסף\", את יום הנישואין ה-50 בשם \"חתונת הזהב\", וכאשר בני הזוג יחגגו את יום הנישואים בפעם השישים, תקרא חגיגה זו \"חתונת היהלום\".</string>
+    <string name="censor_info">טקסט מסביר על עשה ואל תעשה</string>
+    <string name="workplace_info">טקסט מסביר על דברים בעבודה</string>
+    <string name="prairs_info">טקסט מסביר על תפילות</string>
     <string name="young_couple_title">"זו\"צ"</string>
     <string name="young_couple_details">"זוג צעיר - לא ישלמו על כלום, יסתודדו בצד"</string>
     <string name="pkak_title">"פקק"</string>
@@ -77,4 +80,24 @@
     <string name="angry_details">"(במלעיל) לעשות דווקא"</string>
     <string name="yedish_title">"יידישקייט"</string>
     <string name="yedish_details">"כינוי לרוחניות יהודית (קצת יידיש לא יזיק לו).</string>
+    <string name="zatzal_title">זצ\"ל"</string>
+    <string name="zatzal_details">זיכרון דציק לברכה</string>
+    <string name="hundred_title">עד 120</string>
+    <string name="hungred_details">משה רבינו חי עד גיל 120, והיה עוד צלול</string>
+    <string name="water_title">מים אחרונים</string>
+    <string name="water_details">בסיום סעודה חובה ליטול ידיים לפני ברכת המזון</string>
+    <string name="food_title">ברכבת המזון</string>
+    <string name="food_details">ברכה בסיום ארוחה הכוללת לחם</string>
+    <string name="last_title">ברכה אחרונה</string>
+    <string name="last_details">ברכה בסיום ארוחה שאינה כוללת לחם</string>
+    <string name="queen_title">מלווה מלכה</string>
+    <string name="queen_details">ארוחה לפני צאת שבת</string>
+    <string name="eastern_title">מיזרוחניק</string>
+    <string name="eastern_details">כינוי לדתי לאומי</string>
+    <string name="shahrit_title">שחרית</string>
+    <string name="shahrit_details">התפילה הראשונה בבוקר</string>
+    <string name="minha_title">מנחה</string>
+    <string name="minha_details">התפילה השנייה, אחת משלות הנאמרת בשעות בין הערביים</string>
+    <string name="arvit_title">מעריב/ערבית</string>
+    <string name="arvit_details">התפילה השלישית הנאמרת במשך היום לאחר שקיעת החמה</string>
 </resources>

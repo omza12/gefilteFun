@@ -3,11 +3,13 @@ package com.gefilte.app;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import android.app.Dialog;
+
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.widget.Button;
+
+import androidx.preference.PreferenceManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,29 +17,98 @@ import java.util.List;
 public class LearningWords extends AppCompatActivity implements SelectListener{
 
     String genre;
+    SharedPreferences weddingPref, censorPref, prairPref, workplacePref;
+    Button infoBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_learning_words);
-
         RecyclerView recyclerView = findViewById(R.id.main_recycle_view);
+        infoBtn = findViewById(R.id.info_button);
         List<WordItem> items = new ArrayList<>();
         genre = getIntent().getExtras().getString("genre");
+        Intent intent = new Intent(LearningWords.this,word_title.class);
         if (genre.equals("חתונות")){
-            items = setWeddingWords(items);
+            weddingPref = PreferenceManager.getDefaultSharedPreferences(this);
+            if (weddingPref.getBoolean("weddingInfo",true)){
+                intent.putExtra("Title",getString(R.string.wedding_info));
+                startActivity(intent);
+                SharedPreferences.Editor editor = weddingPref.edit();
+                editor.putBoolean("weddingInfo",false);
+                editor.apply();
+            }
+            setWeddingWords(items);
         }
         if (genre.equals("צנזורה")){
-            items = setCensorWords(items);
+            censorPref = PreferenceManager.getDefaultSharedPreferences(this);
+            if (censorPref.getBoolean("censorInfo",true)){
+                intent.putExtra("Title",getString(R.string.censor_info));
+                startActivity(intent);
+                SharedPreferences.Editor editor = censorPref.edit();
+                editor.putBoolean("censor",false);
+                editor.apply();
+            }
+            setCensorWords(items);
         }
         if (genre.equals("עבודה")){
-            items = setWorkplaceWords(items);
+            workplacePref = PreferenceManager.getDefaultSharedPreferences(this);
+            if (workplacePref.getBoolean("workplaceInfo",true)){
+                intent.putExtra("Title",getString(R.string.workplace_info));
+                startActivity(intent);
+                SharedPreferences.Editor editor = workplacePref.edit();
+                editor.putBoolean("workplaceInfo",false);
+                editor.apply();
+            }
+            setWorkplaceWords(items);
+        }
+        if (genre.equals("תפילות")){
+            prairPref = PreferenceManager.getDefaultSharedPreferences(this);
+            if (prairPref.getBoolean("prairsInfo",true)){
+                intent.putExtra("Title",getString(R.string.prairs_info));
+                startActivity(intent);
+                SharedPreferences.Editor editor = prairPref.edit();
+                editor.putBoolean("prairsInfo",false);
+                editor.apply();
+            }
+            setPrairsWords(items);
         }
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(new MyAdapter(getApplicationContext(), items,this));
+
+        infoBtn.setOnClickListener(v -> {
+            if (genre.equals("חתונות")){
+                intent.putExtra("Title",getString(R.string.wedding_info));
+                startActivity(intent);
+                SharedPreferences.Editor editor = weddingPref.edit();
+                editor.putBoolean("weddingInfo",false);
+                editor.apply();
+            }
+            if (genre.equals("צנזורה")){
+                intent.putExtra("Title",getString(R.string.censor_info));
+                startActivity(intent);
+                SharedPreferences.Editor editor = censorPref.edit();
+                editor.putBoolean("censor",false);
+                editor.apply();
+            }
+            if (genre.equals("עבודה")){
+                intent.putExtra("Title",getString(R.string.workplace_info));
+                startActivity(intent);
+                SharedPreferences.Editor editor = workplacePref.edit();
+                editor.putBoolean("workplaceInfo",false);
+                editor.apply();
+            }
+            if (genre.equals("תפילות")){
+                intent.putExtra("Title",getString(R.string.prairs_info));
+                startActivity(intent);
+                SharedPreferences.Editor editor = prairPref.edit();
+                editor.putBoolean("prairsInfo",false);
+                editor.apply();
+            }
+        });
     }
 
-    private List<WordItem> setWeddingWords(List<WordItem> items){
+    private void setWeddingWords(List<WordItem> items){
         items.add(new WordItem(getString(R.string.young_couple_title)));
         items.add(new WordItem(getString(R.string.pkak_title)));
         items.add(new WordItem(getString(R.string.listener_title)));
@@ -47,29 +118,17 @@ public class LearningWords extends AppCompatActivity implements SelectListener{
         items.add(new WordItem(getString(R.string.private_title)));
         items.add(new WordItem(getString(R.string.cheer_title)));
         items.add(new WordItem(getString(R.string.bride_title)));
-//        mDialog = new Dialog(this);
-//        mDialog.setContentView(R.layout.wedding_info_popup);
-//        mDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-//        mDialog.show();
-
-        return items;
     }
 
-    private List<WordItem> setCensorWords(List<WordItem> items){
+    private void setCensorWords(List<WordItem> items){
         items.add(new WordItem(getString(R.string.vadal_title)));
         items.add(new WordItem(getString(R.string.achmal_title)));
         items.add(new WordItem(getString(R.string.modest_title)));
         items.add(new WordItem(getString(R.string.fastnisht_title)));
         items.add(new WordItem(getString(R.string.nisht_title)));
-//        mDialog = new Dialog(this);
-//        mDialog.setContentView(R.layout.wedding_info_popup);
-//        mDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-//        mDialog.show();
-
-        return items;
     }
 
-    private List<WordItem> setWorkplaceWords(List<WordItem> items){
+    private void setWorkplaceWords(List<WordItem> items){
         items.add(new WordItem(getString(R.string.woman_title)));
         items.add(new WordItem(getString(R.string.hold_title)));
         items.add(new WordItem(getString(R.string.basad_title)));
@@ -83,17 +142,23 @@ public class LearningWords extends AppCompatActivity implements SelectListener{
         items.add(new WordItem(getString(R.string.news_title)));
         items.add(new WordItem(getString(R.string.angry_title)));
         items.add(new WordItem(getString(R.string.yedish_title)));
-//        mDialog = new Dialog(this);
-//        mDialog.setContentView(R.layout.wedding_info_popup);
-//        mDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-//        mDialog.show();
+    }
 
-        return items;
+    private void setPrairsWords(List<WordItem> items) {
+        items.add(new WordItem(getString(R.string.zatzal_title)));
+        items.add(new WordItem(getString(R.string.hundred_title)));
+        items.add(new WordItem(getString(R.string.water_title)));
+        items.add(new WordItem(getString(R.string.food_title)));
+        items.add(new WordItem(getString(R.string.last_title)));
+        items.add(new WordItem(getString(R.string.queen_title)));
+        items.add(new WordItem(getString(R.string.eastern_title)));
+        items.add(new WordItem(getString(R.string.shahrit_title)));
+        items.add(new WordItem(getString(R.string.minha_title)));
+        items.add(new WordItem(getString(R.string.arvit_title)));
     }
 
     @Override
     public void onItemClicked(WordItem WordItem) {
-        Intent intent = new Intent(LearningWords.this,word_info.class);
         if (genre.equals("חתונות")){
             setWeddingButtons(WordItem);
         }
@@ -102,6 +167,9 @@ public class LearningWords extends AppCompatActivity implements SelectListener{
         }
         if (genre.equals("עבודה")){
             setWorkplaceButtons(WordItem);
+        }
+        if (genre.equals("תפילות")){
+            setPrairsButtons(WordItem);
         }
     }
 
@@ -248,6 +316,60 @@ public class LearningWords extends AppCompatActivity implements SelectListener{
         if (WordItem.getName().equals(getString(R.string.yedish_title))) {
             intent.putExtra("Title", getString(R.string.yedish_title));
             intent.putExtra("Details", getString(R.string.yedish_details));
+            startActivity(intent);
+        }
+    }
+
+    private void setPrairsButtons(WordItem WordItem) {
+        Intent intent = new Intent(LearningWords.this, word_info.class);
+        if (WordItem.getName().equals(getString(R.string.zatzal_title))) {
+            intent.putExtra("Title", getString(R.string.zatzal_title));
+            intent.putExtra("Details", getString(R.string.zatzal_details));
+            startActivity(intent);
+        }
+        if (WordItem.getName().equals(getString(R.string.hundred_title))) {
+            intent.putExtra("Title", getString(R.string.hundred_title));
+            intent.putExtra("Details", getString(R.string.hungred_details));
+            startActivity(intent);
+        }
+        if (WordItem.getName().equals(getString(R.string.water_title))) {
+            intent.putExtra("Title", getString(R.string.water_title));
+            intent.putExtra("Details", getString(R.string.water_details));
+            startActivity(intent);
+        }
+        if (WordItem.getName().equals(getString(R.string.food_title))) {
+            intent.putExtra("Title", getString(R.string.food_title));
+            intent.putExtra("Details", getString(R.string.food_details));
+            startActivity(intent);
+        }
+        if (WordItem.getName().equals(getString(R.string.last_title))) {
+            intent.putExtra("Title", getString(R.string.last_title));
+            intent.putExtra("Details", getString(R.string.last_details));
+            startActivity(intent);
+        }
+        if (WordItem.getName().equals(getString(R.string.queen_title))) {
+            intent.putExtra("Title", getString(R.string.queen_details));
+            intent.putExtra("Details", getString(R.string.queen_details));
+            startActivity(intent);
+        }
+        if (WordItem.getName().equals(getString(R.string.eastern_title))) {
+            intent.putExtra("Title", getString(R.string.eastern_title));
+            intent.putExtra("Details", getString(R.string.eastern_details));
+            startActivity(intent);
+        }
+        if (WordItem.getName().equals(getString(R.string.shahrit_title))) {
+            intent.putExtra("Title", getString(R.string.shahrit_title));
+            intent.putExtra("Details", getString(R.string.shahrit_details));
+            startActivity(intent);
+        }
+        if (WordItem.getName().equals(getString(R.string.minha_title))) {
+            intent.putExtra("Title", getString(R.string.minha_title));
+            intent.putExtra("Details", getString(R.string.minha_details));
+            startActivity(intent);
+        }
+        if (WordItem.getName().equals(getString(R.string.arvit_title))) {
+            intent.putExtra("Title", getString(R.string.arvit_title));
+            intent.putExtra("Details", getString(R.string.arvit_details));
             startActivity(intent);
         }
     }
