@@ -1,10 +1,11 @@
 package com.gefilte.app;
 
 public class WordItem {
-    String name;
+    String name, info;
 
-    public WordItem(String name) {
+    public WordItem(String name, String info) {
         this.name = name;
+        this.info = info;
     }
 
     public String getName() {
@@ -13,5 +14,12 @@ public class WordItem {
 
     public void setName(String name) {
         this.name = name;
+    }
+    public String getInfo() {
+        return info;
+    }
+
+    public void setInfo(String info) {
+        this.info = info;
     }
 }

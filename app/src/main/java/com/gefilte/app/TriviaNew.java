@@ -2,6 +2,7 @@ package com.gefilte.app;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Intent;
@@ -15,10 +16,10 @@ import android.widget.TextView;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class Trivia extends AppCompatActivity implements View.OnClickListener {
+public class TriviaNew extends AppCompatActivity implements View.OnClickListener {
 
     TextView questionTextView;
-    TextView ansA,ansB,ansC,ansD,submit;
+    Button ansA,ansB,ansC,ansD,submit;
 
     Dialog mDialog;
     int score =0, totalQuestions = Quiz.question.length;
@@ -28,7 +29,7 @@ public class Trivia extends AppCompatActivity implements View.OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_trivia);
+        setContentView(R.layout.activity_trivia_new);
 
         questionTextView = findViewById(R.id.question);
         ansA = findViewById(R.id.ans_a);
@@ -46,12 +47,13 @@ public class Trivia extends AppCompatActivity implements View.OnClickListener {
         loadNewQuestion();
     }
 
+    @SuppressLint("UseCompatLoadingForDrawables")
     @Override
     public void onClick(View v) {
-        ansA.setBackgroundColor(ansA.getContext().getResources().getColor(R.color.grey));
-        ansB.setBackgroundColor(ansB.getContext().getResources().getColor(R.color.grey));
-        ansC.setBackgroundColor(ansC.getContext().getResources().getColor(R.color.grey));
-        ansD.setBackgroundColor(ansD.getContext().getResources().getColor(R.color.grey));
+        ansA.setBackground(ansA.getContext().getDrawable(R.drawable.answer_button));
+        ansB.setBackground(ansB.getContext().getDrawable(R.drawable.answer_button));
+        ansC.setBackground(ansC.getContext().getDrawable(R.drawable.answer_button));
+        ansD.setBackground(ansD.getContext().getDrawable(R.drawable.answer_button));
         mDialog = new Dialog(this);
         Button clickedButton = (Button) v;
         if (clickedButton.getId()==R.id.submit_btn){
@@ -75,7 +77,8 @@ public class Trivia extends AppCompatActivity implements View.OnClickListener {
         }
         else{
             selectedAnswer = clickedButton.getText().toString();
-            clickedButton.setBackgroundColor(clickedButton.getContext().getResources().getColor(R.color.answers_button));
+            clickedButton.setBackground(clickedButton.getContext().getDrawable(R.drawable.selected_answer_button));
+            submit.setBackground(clickedButton.getContext().getDrawable(R.drawable.default_button));
         }
     }
 

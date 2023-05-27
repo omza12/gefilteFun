@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TriviaNew">
+    <LinearLayout
+        android:id="@+id/question_layout"
+        android:layout_width="match_parent"
+        android:layout_height="230dp"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="@drawable/question_rectangle">
+    <TextView
+        android:id="@+id/question_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="שאלה 1"
+        android:textAppearance="@style/question_title"
+        />
+        <TextView
+            android:id="@+id/question"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="מה פירוש המילה צ'ונט?"
+            android:textAppearance="@style/question"
+            android:textAlignment="center"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/answers_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/question_layout"
+        android:orientation="vertical"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        >
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/ans_a"
+            android:layout_width="362dp"
+            android:layout_height="78dp"
+            android:background="@drawable/answer_button"
+            android:text="מברכים"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:fontFamily="@font/heebobold"
+            android:textSize="28sp"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/ans_b"
+            android:layout_width="362dp"
+            android:layout_height="78dp"
+            android:background="@drawable/answer_button"
+            android:layout_marginTop="20dp"
+            android:text="מברכים"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:fontFamily="@font/heebobold"
+            android:textSize="28sp"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/ans_c"
+            android:layout_width="362dp"
+            android:layout_height="78dp"
+            android:background="@drawable/answer_button"
+            android:layout_marginTop="20dp"
+            android:text="מברכים"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:fontFamily="@font/heebobold"
+            android:textSize="28sp"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/ans_d"
+            android:layout_width="362dp"
+            android:layout_height="78dp"
+            android:background="@drawable/answer_button"
+            android:layout_marginTop="20dp"
+            android:text="מברכים"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:fontFamily="@font/heebobold"
+            android:textSize="28sp"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true"
+            android:layout_marginBottom="5dp"/>
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/submit_btn"
+        android:layout_width="370dp"
+        android:layout_height="80dp"
+        android:layout_below="@+id/answers_layout"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/select_button"
+        android:text="בחירה"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:fontFamily="@font/heebobold"
+        android:textSize="28sp"
+        app:strokeColor="#CAF2FF"/>
+</RelativeLayout>

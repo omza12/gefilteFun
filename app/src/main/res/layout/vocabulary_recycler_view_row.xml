@@ -7,7 +7,22 @@
     android:layout_marginBottom="10dp"
     android:layoutDirection="rtl"
     app:cardCornerRadius="10dp"
-    app:cardBackgroundColor="@color/grey">
+    app:cardBackgroundColor="#ffffffff">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+    <TextView
+        android:id="@+id/recycler_word_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:textColor="#1890FF"
+        android:text="מילה ראשונה"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:fontFamily="@font/heebobold"
+        />
     <TextView
         android:id="@+id/recycler_word"
         android:layout_width="match_parent"
@@ -15,5 +30,8 @@
         android:orientation="vertical"
         android:textColor="@color/black"
         android:text="מילה ראשונה"
-        android:textSize="30sp" />
+        android:textSize="18sp"
+        android:fontFamily="@font/heeboregular"
+        />
+    </LinearLayout>
 </androidx.cardview.widget.CardView>

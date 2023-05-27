@@ -6,20 +6,44 @@
     tools:context=".LearningWords"
     android:padding="10dp">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/main_recycle_view"/>
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+            <RelativeLayout
+                android:id="@+id/form_layout"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                >
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/main_recycle_view"/>
 
-    <Button
-        android:id="@+id/info_button"
-        android:background="@drawable/info_button"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="19dp"
-        android:text="i"
-        android:textSize="20sp"
-        android:textStyle="bold" />
-
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/game_btn"
+                    android:background="@drawable/game_button"
+                    android:layout_below="@id/main_recycle_view"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:text="התחילו לשחק!"
+                    android:textSize="24sp"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/heeboregular"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="80dp"/>
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/info_button"
+                    android:background="@drawable/info_button"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="19dp"
+                    android:layout_below="@id/game_btn"
+                    android:text="i"
+                    android:textSize="18sp"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/heebobold"
+                    android:textAllCaps="false"/>
+        </RelativeLayout>
+    </ScrollView>
 </RelativeLayout>

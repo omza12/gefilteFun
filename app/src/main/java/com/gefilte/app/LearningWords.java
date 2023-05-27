@@ -5,159 +5,119 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
-
-import androidx.preference.PreferenceManager;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class LearningWords extends AppCompatActivity implements SelectListener{
+public class LearningWords extends AppCompatActivity {
 
     String genre;
-    SharedPreferences weddingPref, censorPref, prairPref, workplacePref;
-    Button infoBtn;
+    Button gameBtn, infoBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_learning_words);
         RecyclerView recyclerView = findViewById(R.id.main_recycle_view);
         infoBtn = findViewById(R.id.info_button);
+        gameBtn = findViewById(R.id.game_btn);
         List<WordItem> items = new ArrayList<>();
         genre = getIntent().getExtras().getString("genre");
         Intent intent = new Intent(LearningWords.this,word_title.class);
         if (genre.equals("חתונות")){
-            weddingPref = PreferenceManager.getDefaultSharedPreferences(this);
-            if (weddingPref.getBoolean("weddingInfo",true)){
-                intent.putExtra("Title",getString(R.string.wedding_info));
-                startActivity(intent);
-                SharedPreferences.Editor editor = weddingPref.edit();
-                editor.putBoolean("weddingInfo",false);
-                editor.apply();
-            }
             setWeddingWords(items);
         }
         if (genre.equals("צנזורה")){
-            censorPref = PreferenceManager.getDefaultSharedPreferences(this);
-            if (censorPref.getBoolean("censorInfo",true)){
-                intent.putExtra("Title",getString(R.string.censor_info));
-                startActivity(intent);
-                SharedPreferences.Editor editor = censorPref.edit();
-                editor.putBoolean("censor",false);
-                editor.apply();
-            }
             setCensorWords(items);
         }
         if (genre.equals("עבודה")){
-            workplacePref = PreferenceManager.getDefaultSharedPreferences(this);
-            if (workplacePref.getBoolean("workplaceInfo",true)){
-                intent.putExtra("Title",getString(R.string.workplace_info));
-                startActivity(intent);
-                SharedPreferences.Editor editor = workplacePref.edit();
-                editor.putBoolean("workplaceInfo",false);
-                editor.apply();
-            }
             setWorkplaceWords(items);
         }
         if (genre.equals("תפילות")){
-            prairPref = PreferenceManager.getDefaultSharedPreferences(this);
-            if (prairPref.getBoolean("prairsInfo",true)){
-                intent.putExtra("Title",getString(R.string.prairs_info));
-                startActivity(intent);
-                SharedPreferences.Editor editor = prairPref.edit();
-                editor.putBoolean("prairsInfo",false);
-                editor.apply();
-            }
             setPrairsWords(items);
         }
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(new MyAdapter(getApplicationContext(), items,this));
+        recyclerView.setAdapter(new MyAdapter(getApplicationContext(), items));
 
         infoBtn.setOnClickListener(v -> {
             if (genre.equals("חתונות")){
                 intent.putExtra("Title",getString(R.string.wedding_info));
                 startActivity(intent);
-                SharedPreferences.Editor editor = weddingPref.edit();
-                editor.putBoolean("weddingInfo",false);
-                editor.apply();
             }
             if (genre.equals("צנזורה")){
                 intent.putExtra("Title",getString(R.string.censor_info));
                 startActivity(intent);
-                SharedPreferences.Editor editor = censorPref.edit();
-                editor.putBoolean("censor",false);
-                editor.apply();
             }
             if (genre.equals("עבודה")){
                 intent.putExtra("Title",getString(R.string.workplace_info));
                 startActivity(intent);
-                SharedPreferences.Editor editor = workplacePref.edit();
-                editor.putBoolean("workplaceInfo",false);
-                editor.apply();
             }
             if (genre.equals("תפילות")){
                 intent.putExtra("Title",getString(R.string.prairs_info));
                 startActivity(intent);
-                SharedPreferences.Editor editor = prairPref.edit();
-                editor.putBoolean("prairsInfo",false);
-                editor.apply();
+            }
+        });
+
+        gameBtn.setOnClickListener(v -> {
+            if (genre.equals("צנזורה")) {
+                Intent intent2 = new Intent(getApplicationContext(), TriviaNew.class);
+                startActivity(intent2);
             }
         });
     }
 
     private void setWeddingWords(List<WordItem> items){
-        items.add(new WordItem(getString(R.string.young_couple_title)));
-        items.add(new WordItem(getString(R.string.pkak_title)));
-        items.add(new WordItem(getString(R.string.listener_title)));
-        items.add(new WordItem(getString(R.string.sidur_title)));
-        items.add(new WordItem(getString(R.string.vert_title)));
-        items.add(new WordItem(getString(R.string.wedding_title)));
-        items.add(new WordItem(getString(R.string.private_title)));
-        items.add(new WordItem(getString(R.string.cheer_title)));
-        items.add(new WordItem(getString(R.string.bride_title)));
+        items.add(new WordItem(getString(R.string.young_couple_title),getString(R.string.young_couple_details)));
+        items.add(new WordItem(getString(R.string.pkak_title), getString(R.string.pkak_details)));
+        items.add(new WordItem(getString(R.string.listener_title),getString(R.string.listener_details)));
+        items.add(new WordItem(getString(R.string.sidur_title),getString(R.string.sidur_details)));
+        items.add(new WordItem(getString(R.string.vert_title),getString(R.string.vert_details)));
+        items.add(new WordItem(getString(R.string.wedding_title),getString(R.string.wedding_details)));
+        items.add(new WordItem(getString(R.string.private_title),getString(R.string.private_details)));
+        items.add(new WordItem(getString(R.string.cheer_title),getString(R.string.cheer_details)));
+        items.add(new WordItem(getString(R.string.bride_title),getString(R.string.bride_details)));
     }
 
     private void setCensorWords(List<WordItem> items){
-        items.add(new WordItem(getString(R.string.vadal_title)));
-        items.add(new WordItem(getString(R.string.achmal_title)));
-        items.add(new WordItem(getString(R.string.modest_title)));
-        items.add(new WordItem(getString(R.string.fastnisht_title)));
-        items.add(new WordItem(getString(R.string.nisht_title)));
+        items.add(new WordItem(getString(R.string.vadal_title),getString(R.string.vadal_details)));
+        items.add(new WordItem(getString(R.string.achmal_title),getString(R.string.achmal_details)));
+        items.add(new WordItem(getString(R.string.modest_title),getString(R.string.modest_details)));
+        items.add(new WordItem(getString(R.string.fastnisht_title),getString(R.string.fastnisht_details)));
+        items.add(new WordItem(getString(R.string.nisht_title),getString(R.string.nisht_details)));
     }
 
     private void setWorkplaceWords(List<WordItem> items){
-        items.add(new WordItem(getString(R.string.woman_title)));
-        items.add(new WordItem(getString(R.string.hold_title)));
-        items.add(new WordItem(getString(R.string.basad_title)));
-        items.add(new WordItem(getString(R.string.go_prair_title)));
-        items.add(new WordItem(getString(R.string.hiloni_title)));
-        items.add(new WordItem(getString(R.string.shcoiech_title)));
-        items.add(new WordItem(getString(R.string.babies_title)));
-        items.add(new WordItem(getString(R.string.goi_title)));
-        items.add(new WordItem(getString(R.string.dos_and_donts_title)));
-        items.add(new WordItem(getString(R.string.gossip_title)));
-        items.add(new WordItem(getString(R.string.news_title)));
-        items.add(new WordItem(getString(R.string.angry_title)));
-        items.add(new WordItem(getString(R.string.yedish_title)));
+        items.add(new WordItem(getString(R.string.woman_title),getString(R.string.woman_details)));
+        items.add(new WordItem(getString(R.string.hold_title),getString(R.string.hold_details)));
+        items.add(new WordItem(getString(R.string.basad_title),getString(R.string.basad_details)));
+        items.add(new WordItem(getString(R.string.go_prair_title),getString(R.string.go_prair_details)));
+        items.add(new WordItem(getString(R.string.hiloni_title),getString(R.string.hiloni_details)));
+        items.add(new WordItem(getString(R.string.shcoiech_title),getString(R.string.shcoiech_details)));
+        items.add(new WordItem(getString(R.string.babies_title),getString(R.string.babies_details)));
+        items.add(new WordItem(getString(R.string.goi_title),getString(R.string.goi_details)));
+        items.add(new WordItem(getString(R.string.dos_and_donts_title),getString(R.string.dos_and_donts_details)));
+        items.add(new WordItem(getString(R.string.gossip_title),getString(R.string.gossip_details)));
+        items.add(new WordItem(getString(R.string.news_title),getString(R.string.news_details)));
+        items.add(new WordItem(getString(R.string.angry_title),getString(R.string.angry_details)));
+        items.add(new WordItem(getString(R.string.yedish_title),getString(R.string.yedish_details)));
     }
 
     private void setPrairsWords(List<WordItem> items) {
-        items.add(new WordItem(getString(R.string.zatzal_title)));
-        items.add(new WordItem(getString(R.string.hundred_title)));
-        items.add(new WordItem(getString(R.string.water_title)));
-        items.add(new WordItem(getString(R.string.food_title)));
-        items.add(new WordItem(getString(R.string.last_title)));
-        items.add(new WordItem(getString(R.string.queen_title)));
-        items.add(new WordItem(getString(R.string.eastern_title)));
-        items.add(new WordItem(getString(R.string.shahrit_title)));
-        items.add(new WordItem(getString(R.string.minha_title)));
-        items.add(new WordItem(getString(R.string.arvit_title)));
+        items.add(new WordItem(getString(R.string.zatzal_title),getString(R.string.zatzal_details)));
+        items.add(new WordItem(getString(R.string.hundred_title),getString(R.string.hungred_details)));
+        items.add(new WordItem(getString(R.string.water_title),getString(R.string.water_details)));
+        items.add(new WordItem(getString(R.string.food_title),getString(R.string.food_details)));
+        items.add(new WordItem(getString(R.string.last_title),getString(R.string.last_details)));
+        items.add(new WordItem(getString(R.string.queen_title),getString(R.string.queen_details)));
+        items.add(new WordItem(getString(R.string.eastern_title),getString(R.string.eastern_details)));
+        items.add(new WordItem(getString(R.string.shahrit_title),getString(R.string.shahrit_details)));
+        items.add(new WordItem(getString(R.string.minha_title),getString(R.string.minha_details)));
+        items.add(new WordItem(getString(R.string.arvit_title),getString(R.string.arvit_details)));
     }
 
-    @Override
+    /*@Override
     public void onItemClicked(WordItem WordItem) {
         if (genre.equals("חתונות")){
             setWeddingButtons(WordItem);
@@ -372,5 +332,5 @@ public class LearningWords extends AppCompatActivity implements SelectListener{
             intent.putExtra("Details", getString(R.string.arvit_details));
             startActivity(intent);
         }
-    }
+    }*/
 }

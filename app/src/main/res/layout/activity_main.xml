@@ -1,62 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/helloText"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/app_name"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/login"
-        android:layout_width="205dp"
-        android:layout_height="43dp"
-        android:text="@string/login"
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
-
+    tools:context=".MainActivity"
+    android:gravity="center"
+    android:layoutDirection="rtl">
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="match_parent"
-        android:layout_height="300dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="150dp"
         app:srcCompat="@drawable/gefilte"
-        android:contentDescription="Logo"/>
-
-    <Button
-        android:id="@+id/register"
-        android:layout_width="206dp"
-        android:layout_height="41dp"
-        android:backgroundTint="@color/grey"
-        android:text="@string/register"
+        android:layout_marginBottom="50dp" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="בחירת מאגרי מילים"
         android:textColor="@color/black"
         android:textStyle="bold"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login"
-        app:layout_constraintVertical_bias="0.073" />
+        android:textSize="40sp"
+        android:fontFamily="@font/heebobold"
+        android:textAlignment="center"
+        android:id="@+id/voca_title"
+        android:layout_below="@id/imageView"
+        android:layout_marginBottom="50dp"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/buttons_layout"
+        android:orientation="vertical"
+        android:layout_below="@id/voca_title"
+        tools:ignore="UselessParent">
+        <LinearLayout
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="140dp"
+                android:layout_height="70dp"
+                app:cornerRadius="105dp"
+                android:backgroundTint="#68B7FF"
+                android:textColor="@color/white"
+                android:layout_margin="12dp"
+                android:text="חתונות"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:id="@+id/wedding_btn"
+                style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
+                tools:ignore="HardcodedText" />
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="140dp"
+                android:layout_height="70dp"
+                app:cornerRadius="105dp"
+                android:backgroundTint="#68B7FF"
+                android:textColor="@color/white"
+                android:layout_margin="12dp"
+                android:text="צנזורה"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:id="@+id/censorship_btn"
+                style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
+                tools:ignore="HardcodedText" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="140dp"
+                android:layout_height="70dp"
+                app:cornerRadius="105dp"
+                android:backgroundTint="#68B7FF"
+                android:textColor="@color/white"
+                android:layout_margin="12dp"
+                android:text="תפילות"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:id="@+id/prairs_btn"
+                style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
+                tools:ignore="HardcodedText" />
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="140dp"
+                android:layout_height="70dp"
+                app:cornerRadius="105dp"
+                android:backgroundTint="#68B7FF"
+                android:textColor="@color/white"
+                android:layout_margin="12dp"
+                android:text="עבודה"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:id="@+id/dos_and_donts_btn"
+                style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
+                tools:ignore="HardcodedText" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+</RelativeLayout>

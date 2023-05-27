@@ -3,5 +3,6 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="grey">#CACACA</color>
-    <color name="yellowish">#D6B06E</color>
+    <color name="answers_button">#CAF2FF</color>
+    <color name="highlight">#1890FF</color>
 </resources>
