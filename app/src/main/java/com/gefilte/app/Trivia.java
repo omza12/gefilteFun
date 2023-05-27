@@ -18,7 +18,7 @@ import java.util.TimerTask;
 public class Trivia extends AppCompatActivity implements View.OnClickListener {
 
     TextView questionTextView;
-    Button ansA,ansB,ansC,ansD,submit;
+    TextView ansA,ansB,ansC,ansD,submit;
 
     Dialog mDialog;
     int score =0, totalQuestions = Quiz.question.length;
@@ -71,7 +71,6 @@ public class Trivia extends AppCompatActivity implements View.OnClickListener {
             }
             else{
                 finishQuiz();
-                return;
             }
         }
         else{
