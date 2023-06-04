@@ -24,7 +24,7 @@ public class LearningWords extends AppCompatActivity {
         gameBtn = findViewById(R.id.game_btn);
         List<WordItem> items = new ArrayList<>();
         genre = getIntent().getExtras().getString("genre");
-        Intent intent = new Intent(LearningWords.this,word_title.class);
+        Intent intent = new Intent(LearningWords.this,word_info.class);
         if (genre.equals("חתונות")){
             setWeddingWords(items);
         }
@@ -63,6 +63,12 @@ public class LearningWords extends AppCompatActivity {
         gameBtn.setOnClickListener(v -> {
             if (genre.equals("צנזורה")) {
                 Intent intent2 = new Intent(getApplicationContext(), TriviaNew.class);
+                intent2.putExtra("genre", 2);
+                startActivity(intent2);
+            }
+            if (genre.equals("חתונות")) {
+                Intent intent2 = new Intent(getApplicationContext(), TriviaNew.class);
+                intent2.putExtra("genre", 1);
                 startActivity(intent2);
             }
         });

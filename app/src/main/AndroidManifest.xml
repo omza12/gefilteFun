@@ -30,9 +30,6 @@
             android:name=".LearningWords"
             android:exported="false" />
         <activity
-            android:name=".Trivia"
-            android:exported="false" />
-        <activity
             android:name=".SplashScreen"
             android:exported="true"
             android:theme="@style/SplashTheme">

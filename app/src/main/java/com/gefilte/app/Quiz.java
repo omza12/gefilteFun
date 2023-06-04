@@ -2,24 +2,36 @@ package com.gefilte.app;
 
 public class Quiz {
 
-    public static String question[]={
-            "מה פירוש המילה צ'ונט?",
-            "מה פירוש הקיצור אנ\"ש?",
-            "מה פירוש הקיצור זו\"צ?",
-            "מה פירוש המילה שכוייח?"
-    };
+    String[] questions, correctAnswers;
+    String[][] choices;
 
-    public static String choices[][]={
-            {"מאכל שקרוי גם חמין","מברכים","מרכלים","הכשר למסעדות בחו\"ל"},
-            {"אנשי שלום","אנשים משלנו","ארון נישא לשם שבעה","אחרונת נשים לשידוכין"},
-            {"זוג צעיר","זמיר צנוע","זכות לצניעות","זיכרון וצניעות"},
-            {"שכחתי להתפלל","אדם שכחן","ישר כחליל","ישר כוח"}
-    };
+    public Quiz(){
 
-    public static String correctAnswers[]={
-            "מרכלים",
-            "אנשי שלום",
-            "זוג צעיר",
-            "ישר כוח"
-    };
+    }
+    public void setQuestions(String[] questions)
+    {
+        this.questions = questions;
+    }
+
+    public String[] getQuestions()
+    {
+        return questions;
+    }
+
+    public void setChoices (String[][] choices){
+        this.choices = choices;
+    }
+    public String[][] getChoices()
+    {
+        return choices;
+    }
+
+    public void setCorrectAnswers(String[] correctAnswers){
+        this.correctAnswers = correctAnswers;
+    }
+
+    public String[] getCorrectAnswers()
+    {
+        return correctAnswers;
+    }
 }
