@@ -15,7 +15,7 @@
             android:scrollbars="vertical"
             android:text="טקסט של מילה כלשהי"
             android:textSize="20sp"
-            android:fontFamily="@font/heebobold"
+            android:fontFamily="@font/heeboregular"
             android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
