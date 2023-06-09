@@ -16,7 +16,7 @@
         android:id="@+id/question_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="שאלה 1"
+        android:text="שאלה"
         android:textAppearance="@style/question_title"
         />
         <TextView
@@ -107,6 +107,7 @@
         android:layout_marginTop="40dp"
         android:background="@drawable/select_button"
         android:text="בחירה"
+        android:enabled="false"
         android:textStyle="bold"
         android:textColor="@color/white"
         android:fontFamily="@font/heebobold"

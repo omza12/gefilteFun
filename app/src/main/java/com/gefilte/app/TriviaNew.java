@@ -22,25 +22,27 @@ import java.util.TimerTask;
 
 public class TriviaNew extends AppCompatActivity implements View.OnClickListener {
 
-    TextView questionTextView;
+    TextView questionTextView,questionTitle;
     Button ansA,ansB,ansC,ansD,submit;
 
     Dialog mDialog;
     int score = 0, totalQuestions;
-    int currentQuestionIndex = 0;
+    int currentQuestionIndex = 0,currentQuestionTitle = 1;
+    int genre;
     String selectedAnswer = "";
     Quiz quiz;
 
     private SoundPool soundPool;
     int shckoiech, oiVei, playSound;
 
-    @SuppressLint("ObsoleteSdkInt")
+    @SuppressLint({"ObsoleteSdkInt", "SetTextI18n"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_trivia_new);
         quiz = new Quiz();
-        if (getIntent().getExtras().getInt("genre") == 1){
+        genre = getIntent().getExtras().getInt("genre");
+        if (genre == 1){
             setWeddingQuiz();
         }
         else
@@ -49,6 +51,8 @@ public class TriviaNew extends AppCompatActivity implements View.OnClickListener
         }
         totalQuestions = quiz.getQuestions().length;
         questionTextView = findViewById(R.id.question);
+        questionTitle = findViewById(R.id.question_title);
+        questionTitle.setText("שאלה " + Integer.toString(currentQuestionTitle));
         ansA = findViewById(R.id.ans_a);
         ansB = findViewById(R.id.ans_b);
         ansC = findViewById(R.id.ans_c);
@@ -139,13 +143,14 @@ public class TriviaNew extends AppCompatActivity implements View.OnClickListener
         quiz.setCorrectAnswers(censorCorrectAnswers);
     }
 
-    @SuppressLint("UseCompatLoadingForDrawables")
+    @SuppressLint({"UseCompatLoadingForDrawables", "SetTextI18n"})
     @Override
     public void onClick(View v) {
         ansA.setBackground(ansA.getContext().getDrawable(R.drawable.answer_button));
         ansB.setBackground(ansB.getContext().getDrawable(R.drawable.answer_button));
         ansC.setBackground(ansC.getContext().getDrawable(R.drawable.answer_button));
         ansD.setBackground(ansD.getContext().getDrawable(R.drawable.answer_button));
+        submit.setBackground(submit.getContext().getDrawable(R.drawable.select_button));
         mDialog = new Dialog(this);
         Button clickedButton = (Button) v;
         if (clickedButton.getId()==R.id.submit_btn){
@@ -158,11 +163,11 @@ public class TriviaNew extends AppCompatActivity implements View.OnClickListener
                 mDialog.setContentView(R.layout.wrongpopup);
                 playSound = oiVei;
             }
-            mDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-            showDialog(mDialog);
-            currentQuestionIndex++;
             if (currentQuestionIndex < totalQuestions){
                 soundPool.play(playSound,1,1,0,0,1);
+                mDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                showDialog(mDialog);
+                currentQuestionIndex++;
                 loadNewQuestion();
             }
             else{
@@ -173,9 +178,11 @@ public class TriviaNew extends AppCompatActivity implements View.OnClickListener
             selectedAnswer = clickedButton.getText().toString();
             clickedButton.setBackground(clickedButton.getContext().getDrawable(R.drawable.selected_answer_button));
             submit.setBackground(clickedButton.getContext().getDrawable(R.drawable.default_button));
+            submit.setEnabled(true);
         }
     }
 
+    @SuppressLint("SetTextI18n")
     void loadNewQuestion(){
         if (currentQuestionIndex == totalQuestions){
             finishQuiz();
@@ -186,6 +193,9 @@ public class TriviaNew extends AppCompatActivity implements View.OnClickListener
         ansB.setText(quiz.getChoices()[currentQuestionIndex][1]);
         ansC.setText(quiz.getChoices()[currentQuestionIndex][2]);
         ansD.setText(quiz.getChoices()[currentQuestionIndex][3]);
+        submit.setEnabled(false);
+        questionTitle.setText("שאלה "+ currentQuestionTitle);
+        currentQuestionTitle++;
     }
 
     protected void showDialog(Dialog dlg){
@@ -200,15 +210,29 @@ public class TriviaNew extends AppCompatActivity implements View.OnClickListener
     }
 
     void finishQuiz(){
-        String passStatus;
+        Intent intent = new Intent(getApplicationContext(), TriviaResult.class);
+        String result,details,button;
         if (score >= totalQuestions*0.6){
-            passStatus = "כל הכבוד!";
+            result = "אשרייך!";
+            details = "סיימת את המשחק בהצלחה!";
+            button = "לחזרה לתפריט הראשי";
+            intent.putExtra("result",result);
+            intent.putExtra("details",details);
+            intent.putExtra("button",button);
+            startActivity(intent);
         }
         else {
-            passStatus = "לא נורא...";
+            result = "גוועלד!";
+            details = "צדקת ב - " + score + " תשובות מתוך 5 אפשריות.\n על מנת לעבור צריך לפחות 3 תשובות נכונת.";
+            button = "אל יאוש, תנו עוד ניחוש";
+            intent.putExtra("result",result);
+            intent.putExtra("details",details);
+            intent.putExtra("button",button);
+            intent.putExtra("genre", genre);
+            startActivity(intent);
         }
 
-        new AlertDialog.Builder(this)
+        /* new AlertDialog.Builder(this)
                 .setTitle(passStatus)
                 //.setMessage("Score is " + score + " out of " + totalQuestions)
                 .setMessage("צדקת ב - " + score + " מתוך " + totalQuestions + " שאלות")
@@ -217,14 +241,13 @@ public class TriviaNew extends AppCompatActivity implements View.OnClickListener
                 .show()
                 .getWindow()
                 .getDecorView()
-                .setLayoutDirection(View.LAYOUT_DIRECTION_RTL);
+                .setLayoutDirection(View.LAYOUT_DIRECTION_RTL);*/
     }
 
     void restartQuiz(){
         score = 0;
         currentQuestionIndex = 0;
-        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-        startActivity(intent);
+        loadNewQuestion();
     }
 
     @Override

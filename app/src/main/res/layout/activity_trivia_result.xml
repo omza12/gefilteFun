@@ -1,0 +1,49 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/trivia_layout"
+    android:layout_width="300dp"
+    android:layout_height="300dp"
+    android:layout_gravity="center"
+    android:background="@drawable/popupbackground"
+    android:padding="25dp"
+    android:layoutDirection="rtl"
+    android:gravity="center"
+    >
+
+    <TextView
+        android:id="@+id/trivia_result_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:fontFamily="@font/heebobold"
+        android:textSize="24sp"
+        tools:ignore="HardcodedText"
+        />
+
+    <TextView
+        android:id="@+id/trivia_result_details"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:layout_below="@id/trivia_result_title"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/heeboregular"
+        android:textSize="18sp"
+        tools:ignore="HardcodedText" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/back_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_below="@+id/trivia_result_details"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/default_button"
+        android:text="Button"
+        android:textColor="@color/black"
+        android:fontFamily="@font/heeboregular"
+        android:textSize="18sp"
+        app:strokeColor="#CAF2FF"
+        tools:ignore="HardcodedText" />
+</RelativeLayout>

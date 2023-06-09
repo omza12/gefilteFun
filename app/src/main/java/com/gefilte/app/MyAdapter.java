@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
@@ -15,7 +16,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
 
     private Context context;
     private List<WordItem> items;
-
+    private CardView cardView;
     private SelectListener listener;
 
     public MyAdapter(Context context, List<WordItem> items, SelectListener listener) {
@@ -35,7 +36,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
         holder.nameView.setText(items.get(position).getName());
         holder.infoView.setText(items.get(position).getInfo());
         holder.imageView.setImageResource(items.get(position).getImage());
-        holder.imageView.setOnClickListener(new View.OnClickListener() {
+        holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 listener.onItemClicked(items.get(position));
