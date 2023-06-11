@@ -4,6 +4,7 @@
     android:layout_width="350dp"
     android:layout_height="350dp"
     android:layout_gravity="center"
+    android:layoutDirection="rtl"
     android:background="@drawable/popupbackground">
 
     <ImageView
@@ -15,12 +16,31 @@
         android:src="@drawable/wrong"
         tools:ignore="ImageContrastCheck" />
     <TextView
+        android:id="@+id/oi_vei"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="אוי ויי!"
         android:textSize="30sp"
-        android:layout_marginTop="25dp"
+        android:fontFamily="@font/heebosemibold"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/resultImage"
         />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/wrong_answer"
+        android:text="התשובה הנכונה היא: "
+        android:fontFamily="@font/heebosemibold"
+        android:textSize="24sp"
+        android:layout_below="@id/oi_vei"
+        android:layout_centerHorizontal="true"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/correct_answer"
+        android:text="בלה"
+        android:fontFamily="@font/heebosemibold"
+        android:textSize="24sp"
+        android:layout_below="@id/wrong_answer"
+        android:layout_centerHorizontal="true"/>
 </RelativeLayout>

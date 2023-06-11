@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FillInTheBlank"
+    android:layoutDirection="rtl">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="השלימו את החסר:"
+        android:fontFamily="@font/heebobold"
+        android:textSize="28sp"
+        android:textColor="#1890FF"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/blank_text"
+        android:text="@string/workplace_blank_text"
+        android:fontFamily="@font/heebosemibold"
+        android:textSize="16sp"
+        android:layout_below="@id/title"
+        android:layout_marginTop="8dp"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/buttons_layout"
+        android:orientation="vertical"
+        android:layout_below="@id/blank_text"
+        tools:ignore="UselessParent"
+        android:padding="16dp">
+            <LinearLayout
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <Button
+                    android:layout_marginEnd="8dp"
+                    android:layout_width="150dp"
+                    android:layout_height="55dp"
+                    android:id="@+id/word_1"
+                    android:text="מילה ראשונה"
+                    android:fontFamily="@font/heebosemibold"/>
+                <Button
+                    android:layout_marginStart="8dp"
+                    android:layout_width="150dp"
+                    android:layout_height="55dp"
+                    android:id="@+id/word_2"
+                    android:text="מילה שנייה"
+                    android:fontFamily="@font/heebosemibold"
+                    />
+
+            </LinearLayout>
+            <LinearLayout
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <Button
+                android:layout_marginEnd="8dp"
+                android:layout_width="150dp"
+                android:layout_height="55dp"
+                android:id="@+id/word_3"
+                android:text="מילה שלישית"
+                android:fontFamily="@font/heebosemibold"
+                />
+            <Button
+                android:layout_marginStart="8dp"
+                android:layout_width="150dp"
+                android:layout_height="55dp"
+                android:id="@+id/word_4"
+                android:text="מילה רביעית"
+                android:fontFamily="@font/heebosemibold"
+                />
+
+        </LinearLayout>
+    <LinearLayout
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:layout_marginEnd="8dp"
+            android:layout_width="150dp"
+            android:layout_height="55dp"
+            android:id="@+id/word_5"
+            android:text="מילה חמישית"
+            android:fontFamily="@font/heebosemibold"
+            />
+        <Button
+            android:layout_marginStart="8dp"
+            android:layout_width="150dp"
+            android:layout_height="55dp"
+            android:id="@+id/word_6"
+            android:text="מילה שישית"
+            android:fontFamily="@font/heebosemibold"
+
+            />
+    </LinearLayout>
+        <LinearLayout
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <Button
+                android:layout_marginEnd="8dp"
+                android:layout_width="150dp"
+                android:layout_height="55dp"
+                android:id="@+id/word_7"
+                android:text="מילה שביעית"
+                android:fontFamily="@font/heebosemibold"
+                />
+            <Button
+                android:layout_marginStart="8dp"
+                android:layout_width="150dp"
+                android:layout_height="55dp"
+                android:id="@+id/word_8"
+                android:text="מילה שמינית"
+                android:fontFamily="@font/heebosemibold"
+
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <Button
+                android:layout_marginEnd="8dp"
+                android:layout_width="150dp"
+                android:layout_height="55dp"
+                android:id="@+id/word_9"
+                android:text="מילה תשיעית"
+                android:fontFamily="@font/heebosemibold"
+                />
+            <Button
+                android:layout_marginStart="8dp"
+                android:layout_width="150dp"
+                android:layout_height="55dp"
+                android:id="@+id/word_10"
+                android:text="מילה עשירית"
+                android:fontFamily="@font/heebosemibold"
+
+                />
+        </LinearLayout>
+    </LinearLayout>
+        <Button
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="55dp"
+            android:id="@+id/back"
+            android:text="חזרה למסך הראשי"
+            android:fontFamily="@font/heebosemibold"
+            android:layout_below="@+id/buttons_layout"
+            android:layout_centerHorizontal="true"
+            android:visibility="invisible"
+            android:clickable="false"
+            />
+    </RelativeLayout>
+</ScrollView>

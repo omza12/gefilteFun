@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
 import android.view.Window;
 import android.widget.TextView;
+import android.widget.VideoView;
 
 public class word_info extends AppCompatActivity {
 

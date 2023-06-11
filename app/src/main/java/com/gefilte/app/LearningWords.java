@@ -65,6 +65,7 @@ public class LearningWords extends AppCompatActivity implements SelectListener{
                 startActivity(intent);
             }
             if (genre.equals("תפילות")){
+                intent.setClass(getApplicationContext(),PrairInfo.class);
                 intent.putExtra("Title",getString(R.string.prairs_info));
                 startActivity(intent);
             }
@@ -81,11 +82,21 @@ public class LearningWords extends AppCompatActivity implements SelectListener{
                 intent2.putExtra("genre", 1);
                 startActivity(intent2);
             }
+            if (genre.equals("עבודה")) {
+                Intent intent2 = new Intent(getApplicationContext(), FillInTheBlank.class);
+                intent2.putExtra("genre", 1);
+                startActivity(intent2);
+            }
+            if (genre.equals("תפילות")) {
+                Intent intent2 = new Intent(getApplicationContext(), FillInTheBlank.class);
+                intent2.putExtra("genre", 2);
+                startActivity(intent2);
+            }
         });
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
             AudioAttributes audioAttributes = new AudioAttributes.Builder()
-                    .setUsage(AudioAttributes.USAGE_ASSISTANCE_SONIFICATION)
+                    .setUsage(AudioAttributes.USAGE_MEDIA)
                     .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
                     .build();
             soundPool = new SoundPool.Builder()

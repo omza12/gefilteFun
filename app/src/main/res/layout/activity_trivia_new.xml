@@ -47,8 +47,8 @@
             android:text="מברכים"
             android:textStyle="bold"
             android:textColor="@color/black"
-            android:fontFamily="@font/heebobold"
-            android:textSize="28sp"
+            android:fontFamily="@font/heebosemibold"
+            android:textSize="20sp"
             android:gravity="center"
             android:clickable="true"
             android:focusable="true"/>
@@ -62,8 +62,8 @@
             android:text="מברכים"
             android:textStyle="bold"
             android:textColor="@color/black"
-            android:fontFamily="@font/heebobold"
-            android:textSize="28sp"
+            android:fontFamily="@font/heebosemibold"
+            android:textSize="20sp"
             android:gravity="center"
             android:clickable="true"
             android:focusable="true" />
@@ -76,8 +76,8 @@
             android:text="מברכים"
             android:textStyle="bold"
             android:textColor="@color/black"
-            android:fontFamily="@font/heebobold"
-            android:textSize="28sp"
+            android:fontFamily="@font/heebosemibold"
+            android:textSize="20sp"
             android:gravity="center"
             android:clickable="true"
             android:focusable="true" />
@@ -90,8 +90,8 @@
             android:text="מברכים"
             android:textStyle="bold"
             android:textColor="@color/black"
-            android:fontFamily="@font/heebobold"
-            android:textSize="28sp"
+            android:fontFamily="@font/heebosemibold"
+            android:textSize="20sp"
             android:gravity="center"
             android:clickable="true"
             android:focusable="true"
@@ -111,6 +111,6 @@
         android:textStyle="bold"
         android:textColor="@color/white"
         android:fontFamily="@font/heebobold"
-        android:textSize="28sp"
+        android:textSize="20sp"
         app:strokeColor="#CAF2FF"/>
 </RelativeLayout>

@@ -9,11 +9,14 @@ import android.text.method.ScrollingMovementMethod;
 import android.widget.Button;
 import android.widget.TextView;
 
+import pl.droidsonroids.gif.GifImageView;
+
 public class TriviaResult extends AppCompatActivity {
 
     TextView result, details;
     String stResult,stDetails,stBtn;
     int genre;
+    GifImageView gefilteGif;
     Button backBtn;
     MediaPlayer player;
     @Override
@@ -21,10 +24,10 @@ public class TriviaResult extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_trivia_result);
 
-        this.setFinishOnTouchOutside(true);
         result = findViewById(R.id.trivia_result_title);
         details = findViewById(R.id.trivia_result_details);
         backBtn = findViewById(R.id.back_btn);
+        gefilteGif = findViewById(R.id.gif);
 
         stResult = getIntent().getExtras().getString("result");
         stDetails = getIntent().getExtras().getString("details");
@@ -46,6 +49,10 @@ public class TriviaResult extends AppCompatActivity {
                 });
             }
             player.start();
+        }
+
+        else {
+            gefilteGif.setImageResource(R.drawable.wrong);
         }
         backBtn.setOnClickListener(v -> {
             Intent intent;
@@ -72,5 +79,7 @@ public class TriviaResult extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
         stopPlayer();
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        startActivity(intent);
     }
 }

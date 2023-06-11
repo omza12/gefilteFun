@@ -1,0 +1,44 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/trivia_layout"
+    android:layout_width="300dp"
+    android:layout_height="400dp"
+    android:layout_gravity="center"
+    android:background="@drawable/popupbackground"
+    android:padding="25dp"
+    android:layoutDirection="rtl"
+    android:gravity="center"
+    >
+    <pl.droidsonroids.gif.GifImageView
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:id="@+id/gif"
+        android:src="@drawable/gefiltegif"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:id="@+id/trivia_result_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:fontFamily="@font/heebobold"
+        android:textSize="24sp"
+        android:layout_marginTop="10dp"
+        tools:ignore="HardcodedText"
+        android:layout_below="@id/gif"
+        android:layout_centerHorizontal="true"
+        />
+
+    <TextView
+        android:id="@+id/trivia_result_details"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:layout_below="@id/trivia_result_title"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/heeboregular"
+        android:textSize="18sp"
+        tools:ignore="HardcodedText"
+        android:layout_centerHorizontal="true" />
+</RelativeLayout>

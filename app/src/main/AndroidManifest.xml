@@ -16,9 +16,24 @@
         android:theme="@style/Theme.Gefilte"
         tools:targetApi="31">
         <activity
+            android:name=".WrongPopUp"
+            android:exported="false"
+            android:theme="@style/AppDialogScreenTheme" />
+        <activity
+            android:name=".FillResult"
+            android:exported="false"
+            android:theme="@style/AppDialogScreenTheme" />
+        <activity
+            android:name=".PrairInfo"
+            android:exported="false"
+            android:theme="@style/AppDialogScreenTheme" />
+        <activity
+            android:name=".FillInTheBlank"
+            android:exported="false" />
+        <activity
             android:name=".TriviaResult"
             android:exported="false"
-            android:theme="@style/AppDialogScreenTheme"/>
+            android:theme="@style/AppDialogScreenTheme" />
         <activity
             android:name=".TriviaNew"
             android:exported="false" />

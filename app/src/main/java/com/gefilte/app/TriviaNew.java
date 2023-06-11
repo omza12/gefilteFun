@@ -33,7 +33,7 @@ public class TriviaNew extends AppCompatActivity implements View.OnClickListener
     Quiz quiz;
 
     private SoundPool soundPool;
-    int shckoiech, oiVei, playSound;
+    int shckoiech, playSound;
 
     @SuppressLint({"ObsoleteSdkInt", "SetTextI18n"})
     @Override
@@ -67,19 +67,18 @@ public class TriviaNew extends AppCompatActivity implements View.OnClickListener
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
             AudioAttributes audioAttributes = new AudioAttributes.Builder()
-                    .setUsage(AudioAttributes.USAGE_ASSISTANCE_SONIFICATION)
+                    .setUsage(AudioAttributes.USAGE_MEDIA)
                     .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
                     .build();
             soundPool = new SoundPool.Builder()
-                    .setMaxStreams(2)
+                    .setMaxStreams(1)
                     .setAudioAttributes(audioAttributes)
                     .build();
         }
         else {
-            soundPool = new SoundPool(2, AudioManager.STREAM_MUSIC,0);
+            soundPool = new SoundPool(1, AudioManager.STREAM_MUSIC,0);
         }
         shckoiech = soundPool.load(this, R.raw.shckoiech, 1);
-        oiVei = soundPool.load(this,R.raw.oi_vei, 1);
 
         loadNewQuestion();
     }
@@ -146,6 +145,7 @@ public class TriviaNew extends AppCompatActivity implements View.OnClickListener
     @SuppressLint({"UseCompatLoadingForDrawables", "SetTextI18n"})
     @Override
     public void onClick(View v) {
+        int delay;
         ansA.setBackground(ansA.getContext().getDrawable(R.drawable.answer_button));
         ansB.setBackground(ansB.getContext().getDrawable(R.drawable.answer_button));
         ansC.setBackground(ansC.getContext().getDrawable(R.drawable.answer_button));
@@ -155,18 +155,20 @@ public class TriviaNew extends AppCompatActivity implements View.OnClickListener
         Button clickedButton = (Button) v;
         if (clickedButton.getId()==R.id.submit_btn){
             if (selectedAnswer.equals(quiz.getCorrectAnswers()[currentQuestionIndex])){
+                delay = 1600;
                 score++;
                 mDialog.setContentView(R.layout.correctpopup);
-                playSound = shckoiech;
+                mDialog.setCancelable(true);
+                mDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                showDialog(mDialog,delay);
+                soundPool.play(shckoiech,1,1,0,0,1);
             }
             else{
-                mDialog.setContentView(R.layout.wrongpopup);
-                playSound = oiVei;
+                Intent intent = new Intent(getApplicationContext(), WrongPopUp.class);
+                intent.putExtra("answer",quiz.getCorrectAnswers()[currentQuestionIndex]);
+                startActivity(intent);
             }
             if (currentQuestionIndex < totalQuestions){
-                soundPool.play(playSound,1,1,0,0,1);
-                mDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-                showDialog(mDialog);
                 currentQuestionIndex++;
                 loadNewQuestion();
             }
@@ -198,7 +200,7 @@ public class TriviaNew extends AppCompatActivity implements View.OnClickListener
         currentQuestionTitle++;
     }
 
-    protected void showDialog(Dialog dlg){
+    protected void showDialog(Dialog dlg,int delay){
         dlg.show();
         final Timer t = new Timer();
         t.schedule(new TimerTask() {
@@ -206,7 +208,7 @@ public class TriviaNew extends AppCompatActivity implements View.OnClickListener
                 dlg.dismiss(); // when the task active then close the dialog
                 t.cancel(); // also just top the timer thread, otherwise, you may receive a crash report
             }
-        }, 1600);
+        }, delay);
     }
 
     void finishQuiz(){
@@ -223,7 +225,7 @@ public class TriviaNew extends AppCompatActivity implements View.OnClickListener
         }
         else {
             result = "גוועלד!";
-            details = "צדקת ב - " + score + " תשובות מתוך 5 אפשריות.\n על מנת לעבור צריך לפחות 3 תשובות נכונת.";
+            details = "צדקת ב - " + score + " תשובות מתוך 5 אפשריות.\n על מנת לעבור צריך לפחות 3 תשובות נכונות.";
             button = "אל יאוש, תנו עוד ניחוש";
             intent.putExtra("result",result);
             intent.putExtra("details",details);
